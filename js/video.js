@@ -18,7 +18,7 @@ document.querySelector("#play").addEventListener("click", function() {
 	let currVol = document.querySelector("#slider").value;
 	
 	console.log("volume level " +currVol);
-	document.querySelector("#volume").innerText = currVol;
+	document.querySelector("#volume").innerText = currVol+"%";
 });
 
 
@@ -68,26 +68,27 @@ document.querySelector("#mute").addEventListener("click", function() {
 	console.log("Silence button says: " + muteButtonText);
 });
 
-// Change volume based on slider value and update volumne text information
+// Change volume based on slider value and update volume text information
 // using change would only update slider when clicked released
 document.querySelector("#slider").addEventListener("input", function() {
 	let newVol = document.querySelector("#slider").value; 
 	video.volume = newVol/100; // to scale it to be from 0-1
-	document.querySelector("#volume").innerText = newVol;
+	document.querySelector("#volume").innerText = newVol+"%";
 
 	console.log('current slider set to: ' + newVol + "%");
 });
 
 // use OldSchool class on video
 document.querySelector("#vintage").addEventListener("click", function() {
-	video.style.filter = "grayscale(100%)";
+	video.className = "oldSchool";
 	console.log("Video in old school mode");
 	// don't need else because that's implied with setting the skip forward
 });
 
 // Revert back to original colors
 document.querySelector("#orig").addEventListener("click", function() {
-	video.style.filter = "grayscale(0%)";
+	// video.style.filter = "grayscale(0%)";
+	video.className = "video";
 	console.log("Video in original mode");
 	// don't need else because that's implied with setting the skip forward
 });
