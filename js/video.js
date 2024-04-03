@@ -71,11 +71,11 @@ document.querySelector("#mute").addEventListener("click", function() {
 // Change volume based on slider value and update volumne text information
 // using change would only update slider when clicked released
 document.querySelector("#slider").addEventListener("input", function() {
-	let newVol = document.querySelector("#slider").value;
-	video.volumne = newVol;
+	let newVol = document.querySelector("#slider").value; 
+	video.volume = newVol/100; // to scale it to be from 0-1
 	document.querySelector("#volume").innerText = newVol;
 
-	console.log('current slider set to: ' + newVol);
+	console.log('current slider set to: ' + newVol + "%");
 });
 
 // use OldSchool class on video
